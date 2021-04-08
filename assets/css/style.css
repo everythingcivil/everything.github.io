@@ -1,0 +1,532 @@
+body {
+    font-family: 'Montserrat', sans-serif !important;
+}
+
+.navbar-brand img {
+    height: 3.5rem !important;
+}
+
+.mt-page-header {
+    margin-top: 93px !important;
+}
+
+.bg-light {
+    background-color: #f2f6fc !important;
+}
+
+.card {
+    box-shadow: 0 0.15rem 1.75rem 0 rgb(33 40 50 / 15%);
+    overflow: hidden;
+}
+
+.blog-preview-img {
+    width: 7rem;
+    max-width: 100%;
+}
+
+a {
+    color: #dc392d !important;
+    text-decoration: none !important;
+    background-color: transparent !important;
+}
+
+.h2,
+h2 {
+    font-size: 1.4rem;
+}
+
+.container{
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+}
+
+.card{
+    border: 0 solid rgba(33,40,50,.125) !important;
+    border-radius: .35rem;
+}
+
+.text-muted {
+    color: #a7aeb8!important;
+}
+
+.small, small {
+    font-weight: 400;
+}
+
+.font-weight-500 {
+    font-weight: 500!important;
+}
+
+.text-primary {
+    color: #dc392d!important;
+}
+.badge{
+    font-weight: 400;
+}
+.badge-primary-soft {
+    color: #212832;
+    background-color: #f0e3e7 !important;
+}
+
+.btn-primary {
+    color: #fff !important;
+    background-color: #dc392d !important;
+    border-color: #dc392d !important;
+}
+.svg-inline--fa{
+    vertical-align: -.1875em;
+    width: 0.875em;
+}
+
+.btn{
+    padding: .875rem 1.125rem !important;
+    font-size: .875rem !important;
+    border-radius: 0.35rem;
+    line-height: 1;
+}
+
+.btn-primary.focus, .btn-primary:focus, .btn-primary:hover {
+    color: rgb(255, 255, 255) !important;
+    background-color: rgb(194, 43, 32) !important;
+    border-color: rgb(183, 41, 31) !important;
+}
+
+.bg-primary {
+    background-color: #dc392d!important;
+}
+
+.card-header {
+    padding: 1rem 1.35rem;
+}
+
+.btn-primary-soft {
+    color: #212832;
+    background-color: #f0e3e7;
+    border-color: #f0e3e7;
+}
+
+.btn-green-soft {
+    color: #212832;
+    background-color: #daefed !important;
+    border-color: #daefed;
+}
+
+.card-body{
+    min-height: 1px;
+    padding: 1.35rem;
+}
+
+.btn-block {
+    display: block;
+    width: 100%;
+}
+
+.btn-primary-soft.focus, .btn-primary-soft:focus, .btn-primary-soft:hover {
+    color: #212832;
+    background-color: #e3cad2 !important;
+    border-color: #dec2cb !important;
+}
+
+.btn-green-soft.focus, .btn-green-soft:focus, .btn-green-soft:hover {
+    color: #212832;
+    background-color: #bfe3e0 !important;
+    border-color: #b6e0dc !important;
+}
+
+.list-group-item{
+    padding: .75rem 1.25rem;
+    background-color: #fff;
+}
+.list-group-item-action {
+    color: #4a515b !important;
+}
+
+action:focus, .list-group-item-action:hover {
+    background-color: #f2f6fc !important;
+}
+
+.bg-green {
+    background-color: #00ac69!important;
+}
+
+.text-green {
+    color: #00ac69!important;
+}
+
+.badge-green-soft {
+    color: #212832;
+    background-color: #daefed;
+}
+
+.ribbon-bg{
+    background: #dd3d31;
+    height: 50vh;
+    width: 100%;
+    -webkit-flex-shrink: 0;
+    -ms-flex-negative: 0;
+    flex-shrink: 0;
+    margin-top: -22px;
+}
+.page-header-title{
+    color: #fff;
+}
+.page-header-text, .text-white-50 {
+    color: hsla(0,0%,100%,.5)!important;
+    font-size: 1.15rem;
+}
+
+/* Footer */
+.novus-footer .footer-section-top {
+  background-color: #f2f6fc;
+}
+
+.widget-social .social{
+    margin-top: 0;
+    margin-bottom: auto;
+}
+
+.widget-social .social>li {
+  padding: 0;
+  margin: 0 5px 0 0;
+  display: inline-block;
+  vertical-align: middle
+}
+
+.widget-social .social>li>a {
+  position: relative;
+  cursor: pointer;
+  color: #dc392d;
+  font-size: 1.14286rem;
+  margin: 0 5px;
+  background-color: #fff !important;
+  width: 36px;
+  height: 36px;
+  float: left
+}
+
+.widget-social .social>li>a:nth-of-type(1):before,
+.widget-social .social>li>a:nth-of-type(1):after,
+.widget-social .social>li>a:nth-of-type(2):before,
+.widget-social .social>li>a:nth-of-type(2):after,
+.widget-social .social>li>a:nth-of-type(3):before,
+.widget-social .social>li>a:nth-of-type(3):after {
+  background-color: #dc392d
+}
+
+.widget-social .social>li>a>.social-inner {
+  top: 0;
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  -moz-justify-content: center;
+  justify-content: center;
+  border: 1px solid rgba(220,57,45,.1);
+}
+
+.widget-social .social>li>a>.social-inner:before,
+.widget-social .social>li>a>.social-inner:after {
+  position: absolute;
+  content: "";
+  display: block;
+  top: 0;
+  -webkit-transition: transform .3s;
+  -o-transition: transform .3s;
+  transition: transform .3s;
+  width: 2px;
+  height: 100%;
+  -webkit-transform: scaleY(0);
+  -ms-transform: scaleY(0);
+  -o-transform: scaleY(0);
+  transform: scaleY(0)
+}
+
+.widget-social .social>li>a>.social-inner:before {
+  left: 0;
+  -webkit-transform-origin: top center;
+  -moz-transform-origin: top center;
+  -ms-transform-origin: top center;
+  transform-origin: top center
+}
+
+.rtl .widget-social .social>li>a>.social-inner:before {
+  right: 0;
+  left: auto
+}
+
+.widget-social .social>li>a>.social-inner:after {
+  right: 0;
+  -webkit-transform-origin: bottom center;
+  -moz-transform-origin: bottom center;
+  -ms-transform-origin: bottom center;
+  transform-origin: bottom center
+}
+
+.rtl .widget-social .social>li>a>.social-inner:after {
+  left: 0;
+  right: auto
+}
+
+.widget-social .social>li>a>.social-inner:hover:before,
+.widget-social .social>li>a>.social-inner:hover:after {
+  -webkit-transform: scaleY(1);
+  -ms-transform: scaleY(1);
+  -o-transform: scaleY(1);
+  transform: scaleY(1)
+}
+
+.widget-social .social>li>a>.social-inner:nth-of-type(1):before,
+.widget-social .social>li>a>.social-inner:nth-of-type(1):after,
+.widget-social .social>li>a>.social-inner:nth-of-type(2):before,
+.widget-social .social>li>a>.social-inner:nth-of-type(2):after,
+.widget-social .social>li>a>.social-inner:nth-of-type(3):before,
+.widget-social .social>li>a>.social-inner:nth-of-type(3):after {
+  background-color: #dc392d
+}
+
+.widget-social .social>li>a:hover {
+  color: #203334
+}
+
+.widget-social .social>li>a:hover:before,
+.widget-social .social>li>a:hover:after {
+  -webkit-transform: scaleX(1);
+  -ms-transform: scaleX(1);
+  -o-transform: scaleX(1);
+  transform: scaleX(1)
+}
+
+.widget-social .social>li>a:hover:before {
+  -webkit-transform-origin: left center;
+  -moz-transform-origin: left center;
+  -ms-transform-origin: left center;
+  transform-origin: left center
+}
+
+.widget-social .social>li>a:hover:after {
+  -webkit-transform-origin: right center;
+  -moz-transform-origin: right center;
+  -ms-transform-origin: right center;
+  transform-origin: right center
+}
+
+.widget-social .social>li>a:hover>.social-inner:before,
+.widget-social .social>li>a:hover>.social-inner:after {
+  -webkit-transform: scaleY(1);
+  -ms-transform: scaleY(1);
+  -o-transform: scaleY(1);
+  transform: scaleY(1)
+}
+
+.widget-social .social>li>a:hover>.social-inner:before {
+  -webkit-transform-origin: bottom center;
+  -moz-transform-origin: bottom center;
+  -ms-transform-origin: bottom center;
+  transform-origin: bottom center
+}
+
+.widget-social .social>li>a:hover>.social-inner:after {
+  -webkit-transform-origin: top center;
+  -moz-transform-origin: top center;
+  -ms-transform-origin: top center;
+  transform-origin: top center
+}
+
+.widget-social .social>li>a:focus {
+  color: #203334
+}
+
+.widget-social .social>li>a:focus:before,
+.widget-social .social>li>a:focus:after {
+  -webkit-transform: scaleX(1);
+  -ms-transform: scaleX(1);
+  -o-transform: scaleX(1);
+  transform: scaleX(1)
+}
+
+.widget-social .social>li>a:focus:before {
+  -webkit-transform-origin: left center;
+  -moz-transform-origin: left center;
+  -ms-transform-origin: left center;
+  transform-origin: left center
+}
+
+.widget-social .social>li>a:focus:after {
+  -webkit-transform-origin: right center;
+  -moz-transform-origin: right center;
+  -ms-transform-origin: right center;
+  transform-origin: right center
+}
+
+.widget-social .social>li>a:focus>.social-inner:before,
+.widget-social .social>li>a:focus>.social-inner:after {
+  -webkit-transform: scaleY(1);
+  -ms-transform: scaleY(1);
+  -o-transform: scaleY(1);
+  transform: scaleY(1)
+}
+
+.widget-social .social>li>a:focus>.social-inner:before {
+  -webkit-transform-origin: bottom center;
+  -moz-transform-origin: bottom center;
+  -ms-transform-origin: bottom center;
+  transform-origin: bottom center
+}
+
+.widget-social .social>li>a:focus>.social-inner:after {
+  -webkit-transform-origin: top center;
+  -moz-transform-origin: top center;
+  -ms-transform-origin: top center;
+  transform-origin: top center
+}
+
+.widget-social .social>li>a:focus-within {
+  color: #203334
+}
+
+.widget-social .social>li>a:focus-within:before,
+.widget-social .social>li>a:focus-within:after {
+  -webkit-transform: scaleX(1);
+  -ms-transform: scaleX(1);
+  -o-transform: scaleX(1);
+  transform: scaleX(1)
+}
+
+.widget-social .social>li>a:focus-within:before {
+  -webkit-transform-origin: left center;
+  -moz-transform-origin: left center;
+  -ms-transform-origin: left center;
+  transform-origin: left center
+}
+
+.widget-social .social>li>a:focus-within:after {
+  -webkit-transform-origin: right center;
+  -moz-transform-origin: right center;
+  -ms-transform-origin: right center;
+  transform-origin: right center
+}
+
+.widget-social .social>li>a:focus-within>.social-inner:before,
+.widget-social .social>li>a:focus-within>.social-inner:after {
+  -webkit-transform: scaleY(1);
+  -ms-transform: scaleY(1);
+  -o-transform: scaleY(1);
+  transform: scaleY(1)
+}
+
+.widget-social .social>li>a:focus-within>.social-inner:before {
+  -webkit-transform-origin: bottom center;
+  -moz-transform-origin: bottom center;
+  -ms-transform-origin: bottom center;
+  transform-origin: bottom center
+}
+
+.widget-social .social>li>a:focus-within>.social-inner:after {
+  -webkit-transform-origin: top center;
+  -moz-transform-origin: top center;
+  -ms-transform-origin: top center;
+  transform-origin: top center
+}
+
+.widget-social .social>li>a:active {
+  color: #203334
+}
+
+.widget-social .social>li>a:active:before,
+.widget-social .social>li>a:active:after {
+  -webkit-transform: scaleX(1);
+  -ms-transform: scaleX(1);
+  -o-transform: scaleX(1);
+  transform: scaleX(1)
+}
+
+.widget-social .social>li>a:active:before {
+  -webkit-transform-origin: left center;
+  -moz-transform-origin: left center;
+  -ms-transform-origin: left center;
+  transform-origin: left center
+}
+
+.widget-social .social>li>a:active:after {
+  -webkit-transform-origin: right center;
+  -moz-transform-origin: right center;
+  -ms-transform-origin: right center;
+  transform-origin: right center
+}
+
+.widget-social .social>li>a:active>.social-inner:before,
+.widget-social .social>li>a:active>.social-inner:after {
+  -webkit-transform: scaleY(1);
+  -ms-transform: scaleY(1);
+  -o-transform: scaleY(1);
+  transform: scaleY(1)
+}
+
+.widget-social .social>li>a:active>.social-inner:before {
+  -webkit-transform-origin: bottom center;
+  -moz-transform-origin: bottom center;
+  -ms-transform-origin: bottom center;
+  transform-origin: bottom center
+}
+
+.widget-social .social>li>a:active>.social-inner:after {
+  -webkit-transform-origin: top center;
+  -moz-transform-origin: top center;
+  -ms-transform-origin: top center;
+  transform-origin: top center
+}
+
+.widget-social .social>li>a:before,
+.widget-social .social>li>a:after {
+  position: absolute;
+  content: "";
+  display: block;
+  -webkit-transition: transform .3s;
+  -o-transition: transform .3s;
+  transition: transform .3s;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  -webkit-transform: scaleX(0);
+  -ms-transform: scaleX(0);
+  -o-transform: scaleX(0);
+  transform: scaleX(0)
+}
+
+.widget-social .social>li>a:before {
+  top: 0;
+  -webkit-transform-origin: right center;
+  -moz-transform-origin: right center;
+  -ms-transform-origin: right center;
+  transform-origin: right center
+}
+
+.widget-social .social>li>a:after {
+  bottom: 0;
+  -webkit-transform-origin: left center;
+  -moz-transform-origin: left center;
+  -ms-transform-origin: left center;
+  transform-origin: left center
+}
+
+.widget-social .social>li:last-child {
+  margin-right: 0
+}
+
+.novus-footer .novus-footer-bottom {
+  background-color: #f2f6fc;
+  border-top: 1px solid rgba(0,0,0,.1);
+}
