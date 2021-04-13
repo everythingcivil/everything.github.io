@@ -24,6 +24,7 @@ firebase.auth().onAuthStateChanged((user) => {
 function login() {
   let email = document.getElementById("email").value;
   let password = document.getElementById("password").value;
+  document.getElementById("wrongalert").innerHTML = "";
 
   firebase
     .auth()
@@ -34,6 +35,6 @@ function login() {
     })
     .catch((error) => {
       console.log(error);
-      alert("Bad Credentials");
+      document.getElementById("wrongalert").innerHTML = '<div class="alert alert-danger" role="alert"><strong>Oh Snap!</strong> Bad Credentials!</div>';
     });
 }

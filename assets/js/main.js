@@ -12,23 +12,3 @@ var firebaseConfig = {
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 //firebase.analytics();
-
-document.getElementById("pagetitle").innerHTML = "";
-document.getElementById("navbardata").innerHTML = "";
-
-firebase
-.firestore()
-.collection("navbar")
-.get()
-.then((docs) => {
-docs.forEach((doc) => {
-    document.getElementById("navbardata").innerHTML += `
-            <a class="nav-link" aria-current="page" href="${doc.data().link}">${doc.data().name}</a>
-        `;
-    let i = doc.data().link;
-    if(window.location.pathname.split("/").pop() == i){
-        document.getElementById("pagetitle").innerHTML = doc.data().title;
-    }
-
-    });
-});

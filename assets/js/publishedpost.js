@@ -33,28 +33,34 @@ function logout() {
     });
 }
 
-function addpost() {
-  let title = document.getElementById("title").value;
-  let content = document.getElementById("content").value;
+function showposts() {
+  document.getElementById("postlist").innerHTML = "";
+  let i = 1;
 
-  if (!title && !content) {
-    alert("Kindly input valid Text");
-  } else {
-    console.log(title);
-    firebase
-      .firestore()
-      .collection("posts")
-      .add({
-        title: title,
-        content: content,
+  firebase
+    .firestore()
+    .collection("posts")
+    .where("status", "==", 3)
+    .orderBy('date', 'desc')
+    .get()
+    .then((docs) => {
+      docs.forEach((doc) => {
+        document.getElementById("postlist").innerHTML += `
+                  <tr>
+                      <th scope="row">${i++}</th>
+                      <td>${doc.data().title}</td>
+                      <td class="small">
+                          <div><a onClick="viewpost('${doc.id}')">View Blog</a></div>
+                      </div>
+                      </td>
+                  </tr>
+              `;
       })
-      .then((doc) => {
-        console.log("Doc id " + doc.id);
-        alert("Data Added");
-        document.getElementById("title").value = "";
-      })
-      .catch((e) => {
-        console.log(e);
-      });
-  }
+    });
+
 }
+
+function viewpost(id, slug) {
+  window.open("article.html?" + slug + id, '_blank');
+}
+showposts();

@@ -35,29 +35,39 @@ function logout() {
 
 function showposts() {
   document.getElementById("postlist").innerHTML = "";
+  let i = 1;
+  var options = {
+    weekday: 'long',
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric'
+  };
   firebase
     .firestore()
     .collection("posts")
+    .orderBy('date', 'desc')
     .get()
     .then((docs) => {
       docs.forEach((doc) => {
         document.getElementById("postlist").innerHTML += `
                 <tr>
+                    <th scope="row">${i++}</th>
                     <td>${doc.data().title}</td>
+                    <td>${doc.data().date.toDate().toLocaleDateString('en-US', options).split(' ').slice(1).join(' ')}</td>
+                    <td>${doc.data().author}</td>
                     <td>
-                        <button onClick="deletepost('${
-                          doc.id
-                        }')" class="btn btn-danger">Delete</button>
+                        <a onClick="deletepost('${doc.id}')">Delete</a>
+                        <a style="color:#17a2b8 !important" onClick="deletepost('${doc.id}')">Edit</a>
+                    </div>
                     </td>
-                </tr><br/>
+                </tr>
             `;
-      });
+      })
     });
 }
 
 function deletepost(id) {
   if (confirm("Are you Sure?")) {
-    console.log(id);
     firebase
       .firestore()
       .collection("posts")
