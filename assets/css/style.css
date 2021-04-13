@@ -600,6 +600,14 @@ action:focus,
   text-align: center;
 }
 
+.post strong{
+  font-weight: 500;
+}
+
+.post ul li{
+  color: rgb(0,0,0);
+}
+
 .text-xs {
   font-size: .8rem !important;
 }
