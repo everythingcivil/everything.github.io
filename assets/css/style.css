@@ -1,6 +1,6 @@
 body {
   font-family: 'Ubuntu', sans-serif;
-  color: rgb(105, 112, 122);
+  color: #363d47;
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.5;
@@ -588,6 +588,11 @@ action:focus,
   text-align: justify !important;
 }
 
+.post {
+  color: #363d47;
+  font-size: 1.125rem;
+}
+
 .post img {
   width: 100% !important;
 }
@@ -600,12 +605,13 @@ action:focus,
   text-align: center;
 }
 
-.post strong{
+.post strong {
   font-weight: 500;
+  color: rgb(0, 0, 0);
 }
 
-.post ul li{
-  color: rgb(0,0,0);
+.post ul li {
+  color: rgb(0, 0, 0);
 }
 
 .text-xs {

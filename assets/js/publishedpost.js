@@ -41,20 +41,36 @@ function showposts() {
     .firestore()
     .collection("posts")
     .where("status", "==", 3)
-    .orderBy('date', 'desc')
+    .orderBy('timestamp', 'desc')
     .get()
     .then((docs) => {
       docs.forEach((doc) => {
+        let popularCol, popularFn, popularText;
+        if (doc.data().popularity == 1) {
+          popularCol = "Yes"
+          popularFn = "markPopular"
+          popularText = "Mark Unpopular"
+        } else {
+          popularCol = "No"
+          popularFn = "markUnpopular"
+          popularText = "Mark Popular"
+        }
         document.getElementById("postlist").innerHTML += `
-                  <tr>
-                      <th scope="row">${i++}</th>
-                      <td>${doc.data().title}</td>
-                      <td class="small">
-                          <div><a onClick="viewpost('${doc.id}')">View Blog</a></div>
-                      </div>
-                      </td>
-                  </tr>
-              `;
+          <tr>
+              <th scope="row">${i++}</th>
+              <td>${doc.data().title}</td>
+              <td class="small">${popularCol}</td>
+              <td class="small">
+                  <a class="me-2" onClick="viewpost('${doc.id}')">View Blog</a>
+              </td>
+              <td class="small">
+                  <a style="color:rgb(0 172 105) !important" onClick="${popularFn}('${doc.id}')">${popularText}</a>
+              </td>
+              <td class="small">
+              <a class="me-2" onClick="unpublish('${doc.id}')">Unpublish</a>
+              </td>
+          </tr>
+        `;
       })
     });
 
@@ -63,4 +79,62 @@ function showposts() {
 function viewpost(id, slug) {
   window.open("article.html?" + slug + id, '_blank');
 }
+
+function markPopular(id) {
+  if (confirm("Are you Sure?")) {
+    firebase
+      .firestore()
+      .collection("posts")
+      .doc(id)
+      .update({
+        popularity: 1
+      })
+      .then((doc) => {
+        alert("Marked Popular!");
+        location.reload();
+      })
+      .catch((e) => {
+        console.log(e);
+      });
+  }
+}
+
+function markUnpopular(id) {
+  if (confirm("Are you Sure?")) {
+    firebase
+      .firestore()
+      .collection("posts")
+      .doc(id)
+      .update({
+        popularity: 0
+      })
+      .then((doc) => {
+        alert("Marked Unpopular!");
+        location.reload();
+      })
+      .catch((e) => {
+        console.log(e);
+      });
+  }
+}
+
+function unpublish(id) {
+  if (confirm("On Unpublished, Artcile will sent to Drafts. Are you Sure?")) {
+    firebase
+      .firestore()
+      .collection("posts")
+      .doc(id)
+      .update({
+        status: 2
+      })
+      .then((doc) => {
+        alert("Article Unpublished and sent to Drafts");
+        location.reload();
+      })
+      .catch((e) => {
+        console.log(e);
+      });
+  }
+}
+
 showposts();

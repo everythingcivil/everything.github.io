@@ -125,6 +125,7 @@ function fetchdata(docid) {
       document.getElementById("tag2").value = doc.data().tag2
       document.getElementById("author").value = doc.data().author
       document.getElementById("shortIntro").value = doc.data().shortIntro
+      document.getElementById("aLink").href = '../article.html?' + doc.data().slug + '-' + doc.id;
       editor.setData(doc.data().content)
     })
     .catch((e) => {
@@ -153,10 +154,7 @@ document.querySelector('#savecontent').addEventListener('click', () => {
       content: editorData,
     })
     .then((doc) => {
-      var myAlert = document.getElementById('liveToast');
-      var bsAlert = new bootstrap.Toast(myAlert);
-      bsAlert.show();
-      //console.log("Updated")
+      alert("Data saved successfully!")
     })
     .catch((e) => {
       console.log(e);

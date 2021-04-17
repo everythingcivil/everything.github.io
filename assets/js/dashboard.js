@@ -45,7 +45,7 @@ function showposts() {
   firebase
     .firestore()
     .collection("posts")
-    .orderBy('date', 'desc')
+    .orderBy('timestamp', 'desc')
     .get()
     .then((docs) => {
       docs.forEach((doc) => {
@@ -83,4 +83,4 @@ function deletepost(id) {
   }
 }
 
-showposts();
+//showposts();

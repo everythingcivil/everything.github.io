@@ -36,33 +36,25 @@ function logout() {
 function showposts() {
   document.getElementById("postlist").innerHTML = "";
   let i = 1;
-  var options = {
-    weekday: 'long',
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric'
-  };
 
   firebase
     .firestore()
     .collection("posts")
     .where("status", "==", 2)
-    .orderBy('date', 'desc')
+    .orderBy('timestamp', 'desc')
     .get()
     .then((docs) => {
       docs.forEach((doc) => {
         document.getElementById("postlist").innerHTML += `
-                    <tr>
-                        <th scope="row">${i++}</th>
-                        <td class="w-50">${doc.data().title}</td>
-                        <td>${doc.data().date.toDate().toLocaleDateString('en-US', options).split(' ').slice(1).join(' ')}</td>
-                        <td class="small">
-                            <div><a onClick="viewpost('${doc.id}')">View Blog</a></div>
-                            <div><a style="color:#17a2b8 !important" onClick="publishpost('${doc.id}')">Publish</a></div>
-                        </div>
-                        </td>
-                    </tr>
-                `;
+          <tr>
+              <th scope="row">${i++}</th>
+              <td class="w-50">${doc.data().title}</td>
+              <td>${doc.data().date}</td>
+              <td class="small"><a href="../article.html?${doc.data().slug}-${doc.id}" target="_blank">View Article</a></td>
+              <td class="small"><a style="color:#17a2b8 !important" onClick="publishpost('${doc.id}')">Publish</a></td>
+              <td class="small"><a style="color:red !important" onClick="sentToEdit('${doc.id}')">Sent to Edit</a></td>
+          </tr>
+        `;
       })
     });
 
@@ -87,25 +79,34 @@ function publishpost(id) {
   }
 }
 
-function viewpost(id, slug) {
-  window.open("article.html?" + slug + id, '_blank');
+function sentToEdit(id) {
+  if (confirm("Are you Sure to send the article to Edit?")) {
+    firebase
+      .firestore()
+      .collection("posts")
+      .doc(id)
+      .update({
+        status: 1
+      })
+      .then((doc) => {
+        alert("Article Sent to Create Folder");
+        location.reload();
+      })
+      .catch((e) => {
+        console.log(e);
+      });
+  }
 }
 
 function archivedposts() {
   document.getElementById("postlist").innerHTML = "";
   let i = 1;
-  var options = {
-    weekday: 'long',
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric'
-  };
 
   firebase
     .firestore()
     .collection("posts")
     .where("status", "==", 4)
-    .orderBy('date', 'desc')
+    .orderBy('timestamp', 'desc')
     .get()
     .then((docs) => {
       docs.forEach((doc) => {

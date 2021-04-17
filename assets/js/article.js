@@ -15,12 +15,6 @@ firebase.initializeApp(firebaseConfig);
 
 function showArtile(id) {
   document.getElementById("showposts").innerHTML = "";
-  var options = {
-    weekday: 'long',
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric'
-  };
 
   let origin = window.location.origin;
   let locUrl = origin + '/article.html';
@@ -30,32 +24,30 @@ function showArtile(id) {
     return;
   }
 
-
   var docRef = firebase.firestore().collection('posts').doc(id)
-
   docRef.get()
     .then((doc) => {
       if (doc.exists) {
         document.getElementById("showposts").innerHTML += `
-                <article class="post">
-                  <header>
-                    <h1>${doc.data().title}</h1>
-                    <div class="small text-muted mb-2 font-italic">
-                      ${doc.data().date.toDate().toLocaleDateString('en-US', options).split(' ').slice(1).join(' ')}
-                      by ${doc.data().author}
-                    </div>
-                    <div class="mb-3">
-                      <a class="badge badge-primary-soft text-primary text-capitalize mr-2">${doc.data().tag1}</a>
-                      <a class="badge badge-primary-soft text-primary text-capitalize mr-2">${doc.data().tag2}</a>
-                    </div>
-                    <hr class="hr-lg">
-                  </header>
-                  <div>
-                    ${doc.data().content}
-                  </div>
-                </article>
-          `;
-
+          <article class="post">
+            <header>
+              <h1>${doc.data().title}</h1>
+              <div class="small text-muted mb-2 font-italic">
+                ${doc.data().date}
+                by
+                <a href="javascript:void(0);" class="text-dark">${doc.data().author}</a> 
+              </div>
+              <div class="mb-3">
+                <a class="badge badge-primary-soft text-primary text-capitalize mr-2">${doc.data().tag1}</a>
+                <a class="badge badge-primary-soft text-primary text-capitalize mr-2">${doc.data().tag2}</a>
+              </div>
+              <hr class="hr-lg">
+            </header>
+            <div>
+              ${doc.data().content}
+            </div>
+          </article>
+        `;
       } else {
         window.location = "index.html";
         console.log("NO")
@@ -63,6 +55,6 @@ function showArtile(id) {
     });
 }
 
-let str = location.search.substring(1).split("/");
+let str = location.search.substring(1).split("-");
 let link = str[str.length - 1];
 showArtile(link);

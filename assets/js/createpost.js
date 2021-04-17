@@ -41,6 +41,14 @@ function createpost() {
   let shortIntro = document.getElementById("shortIntro").value;
   let imglen = document.querySelector("#image").files.length
   let slug = slugify(title);
+  let timestamp = firebase.firestore.Timestamp.now();
+  let options = {
+    weekday: 'long',
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric'
+  };
+  let date = firebase.firestore.Timestamp.now().toDate().toLocaleDateString('en-US', options).split(' ').slice(1).join(' ');
 
   if (imglen == 0 || title == "" || author == "" || tag1 == "" || tag2 == "") {
     alert("Enter Data and Upload Image First!");
@@ -55,7 +63,6 @@ function createpost() {
     var uploadTask = storageRef.put(image, metadata)
     uploadTask.on('state_changed', function (snapshot) {
       var progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-      //console.log("Upload is " + progress + "done");
     }, function (error) {
       console.log(error.message);
     }, function () {
@@ -70,10 +77,12 @@ function createpost() {
             tag2: tag2,
             title: title,
             slug: slug,
-            date: firebase.firestore.Timestamp.now(),
-            content: "<b>Start Creating Masterpiece...</b>",
+            timestamp: timestamp,
+            date: date,
+            content: "Start Creating Masterpiece...",
             image: downloadUrl,
-            shortIntro: shortIntro
+            shortIntro: shortIntro,
+            popularity: 0
           }, function (error) {
             if (error) {
               alert('Error While Uploading');
@@ -113,33 +122,25 @@ function slugify(string) {
 function showposts() {
   document.getElementById("postlist").innerHTML = "";
   let i = 1;
-  var options = {
-    weekday: 'long',
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric'
-  };
+
   firebase
     .firestore()
     .collection("posts")
     .where("status", "==", 1)
-    .orderBy('date', 'desc')
+    .orderBy('timestamp', 'desc')
     .get()
     .then((docs) => {
       docs.forEach((doc) => {
         document.getElementById("postlist").innerHTML += `
-                <tr>
-                    <th scope="row">${i++}</th>
-                    <td>${doc.data().title}</td>
-                    <td>${doc.data().date.toDate().toLocaleDateString('en-US', options).split(' ').slice(1).join(' ')}</td>
-                    <td class="small">
-                        <div><a onClick="addcontent('${doc.id}')">Add Content</a></div>
-                        <div><a style="color:#17a2b8 !important" onClick="todrafts('${doc.id}')">Send to Draft</a></div>
-                        <div><a style="color:red !important" onClick="deletepost('${doc.id}')">Delete</a></div>
-                    </div>
-                    </td>
-                </tr>
-            `;
+          <tr>
+              <th scope="row">${i++}</th>
+              <td>${doc.data().title}</td>
+              <td>${doc.data().date}</td>
+              <td class="small"><a onClick="addcontent('${doc.id}')">Add Content</a></td>
+              <td class="small"><a style="color:#17a2b8 !important" onClick="todrafts('${doc.id}')">Send to Draft</a></td>
+              <td class="small"><a style="color:red !important" onClick="deletepost('${doc.id}')">Delete</a></td>
+          </tr>
+        `;
       })
     });
 
